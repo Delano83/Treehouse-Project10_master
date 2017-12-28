@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= pageTitle
+
+  if submissionFail
+    ul
+      each error in submissionFail.errors
+        li= error.message
+
+  p 
+    strong Book Title: &nbsp;
+    | #{data.Book.title}
+  p
+    strong Loaned By: &nbsp; 
+    | #{data.Patron.first_name} #{data.Patron.last_name}
+  p 
+    strong Loaned On: &nbsp; 
+    | #{data.loaned_on}
+  p
+    strong Return By: &nbsp;
+    | #{data.return_by}
+
+  form(action='/return-book/' + data.id, method="post")
+    p
+    strong Returned On: &nbsp;
+    input#loan.returned_on(type='text', name='returned_on', value=data.returned_on)
+    p
+    input(type='submit', value='Return Book')

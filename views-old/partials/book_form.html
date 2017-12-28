@@ -1,0 +1,32 @@
+{{#if submissionFail}}
+  <ul>
+    {{#each submissionFail.errors}}
+      <li>{{this.message}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+<form action="{{this.formAction}}" method="post">
+
+    <p>
+      <label for="title">Title</label>
+      <input id="title" type="text" name="title" value="{{book.dataValues.title}}">
+    </p>
+
+    <p>
+      <label for="author">Author</label>
+      <input id="author" type="text" name="author" value="{{book.dataValues.author}}">
+    </p>
+
+    <p>
+      <label for="genre">Genre</label>
+      <input id="genre" type="text" name="genre" value="{{book.dataValues.genre}}">
+    </p>
+
+    <p>
+      <label for="first_published">First Published</label>
+      <input id="first_published" type="text" name="first_published" value={{book.dataValues.first_published}}>
+    </p>
+
+    <p><input type="submit" value="{{formSubmitLabel}}"></p>
+</form>

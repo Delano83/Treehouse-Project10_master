@@ -1,0 +1,41 @@
+{{#if submissionFail}}
+  <ul>
+    {{#each submissionFail.errors}}
+      <li>{{this.message}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+<form action="{{formAction}}" method="post">
+    <p>
+      <label for="book_id">Book</label>
+      <select id="book_id" name="book_id">
+        <option value="">Choose a book</option>
+        {{#each books}}
+          <option value="{{this.id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+    </p>
+
+    <p>
+      <label for="patron_id">Patron</label>
+      <select id="patron_id" name="patron_id">
+        <option value="">Choose a patron</option>
+        {{#each patrons}}
+          <option value="{{this.id}}">{{this.first_name}} {{this.last_name}}</option>
+        {{/each}}
+      </select>
+    </p>
+
+    <p>
+      <label for="loaned_on">Loaned on:</label>
+      <input id="loaned_on" type="text" name="loaned_on" value="{{loaned_on}}">
+    </p>
+
+    <p>
+      <label for="return_by">Return by:</label>
+      <input id="return_by" type="text" name="return_by" value="{{return_by}}">
+    </p>
+
+    <p><input type="submit" value="{{formSubmitLabel}}"></p>
+</form>

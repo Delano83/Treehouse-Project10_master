@@ -1,0 +1,24 @@
+{{> books_page_elements}}
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Year Released</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+        {{#with this.dataValues}}
+        <tr>
+            <td><a href="/book-detail/{{id}}">{{this.title}}</a></td>
+            <td>{{this.author}}</td>
+            <td>{{this.genre}}</td>
+            <td>{{this.first_published}}</td>
+        </tr>
+        {{/with}}
+      {{/each}}
+    </tbody>
+</table>

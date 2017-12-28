@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{pageTitle}}</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+  <header>
+    {{> main_navigation}}
+  </header>
+
+  <main>
+
+    {{#if error}}
+
+      <h1>{{error.message}}</h1>
+
+    {{else}}
+
+      <h1>{{pageTitle}}</h1>
+
+      {{{body}}}
+
+    {{/if}}
+
+  </main>
+</body>
+</html>

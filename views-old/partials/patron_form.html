@@ -1,0 +1,37 @@
+{{#if submissionFail}}
+  <ul>
+    {{#each submissionFail.errors}}
+      <li>{{this.message}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+<form action="{{formAction}}" method="post">
+    <p>
+      <label for="first_name">First Name</label>
+      <input id="first_name" type="text" name="first_name" value="{{patron.dataValues.first_name}}">
+    </p>
+    <p>
+      <label for="last_name">Last Name</label>
+      <input id="last_name" type="text" name="last_name" value="{{patron.dataValues.last_name}}">
+    </p>
+    <p>
+      <label for="address"> Address</label>
+      <input id="address" type="text" name="address" value="{{patron.dataValues.address}}">
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input id="email" type="text" name="email" value="{{patron.dataValues.email}}">
+    </p>
+    <p>
+      <label for="library_id">Library ID</label>
+      <input id="library_id" type="text" name="library_id" value="{{patron.dataValues.library_id}}">
+    </p>
+    <p>
+      <label for="zip_code">Zip Code</label>
+      <input id="zip_code" type="text" name="zip_code" value="{{patron.dataValues.zip_code}}">
+    </p>
+  <p>
+    <input type="submit" value="{{formSubmitLabel}}">
+  </p>
+</form>

@@ -1,0 +1,30 @@
+{{> patron_form}}
+
+
+<h2>Loan History</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Loaned on</th>
+            <th>Return by </th>
+            <th>Returned on</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{#each loans}}
+      <tr>
+          <td><a href="/book-detail/{{book_id}}">{{this.dataValues.book.dataValues.title}}</a></td>
+          <td>{{this.loaned_on}}</td>
+          <td>{{this.return_by}}</td>
+          <td>{{this.returned_on}}</td>
+          {{#unless this.returned_on}}
+          <td>
+            <a href="/return-book/{{id}}" class="button">Return Book</a>
+          </td>
+          {{/unless}}
+      </tr>
+      {{/each}}
+    </tbody>
+</table>

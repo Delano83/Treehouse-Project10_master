@@ -1,0 +1,38 @@
+{{> loans_page_elements}}
+
+<table>
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Patron </th>
+            <th>Loaned on</th>
+            <th>Return by </th>
+            <th>Returned on</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+        {{#with dataValues}}
+        <tr>
+            <td><a href="/book-detail/{{book_id}}">{{this.book.dataValues.title}}</a></td>
+            <td>
+              <a href="/patron-detail/{{patron_id}}">
+              {{#with this.patron.dataValues}}
+                {{this.first_name}} {{this.last_name}}
+              {{/with}}
+              </a>
+            </td>
+            <td>{{this.loaned_on}}</td>
+            <td>{{this.return_by}}</td>
+            <td>{{this.returned_on}}</td>
+            {{#unless this.returned_on}}
+            <td>
+              <a href="/return-book/{{this.id}}" class="button">Return Book</a>
+            </td>
+            {{/unless}}
+        </tr>
+        {{/with}}
+      {{/each}}
+    </tbody>
+</table>

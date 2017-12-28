@@ -1,0 +1,25 @@
+<p><strong>Book Title: </strong>{{data.dataValues.book.dataValues.title}}</p>
+<p>
+  <strong>Loaned By: </strong>
+  {{data.dataValues.patron.dataValues.first_name}} {{data.dataValues.patron.dataValues.last_name}}
+</p>
+<p><strong>Loaned On: </strong>{{data.dataValues.loaned_on}}</p>
+<p><strong>Return By: </strong>{{data.dataValues.return_by}}</p>
+
+<form action="/return-book/{{data.dataValues.id}}" method="post">
+
+  {{#if submissionFail}}
+    <ul>
+      {{#each submissionFail.errors}}
+        <li>{{this.message}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <p>
+    <label for="returned_on">Returned on:</label>
+    <input id="returned_on" type="text" name="returned_on" value="{{data.dataValues.returned_on}}">
+  </p>
+
+  <p><input type="submit" value="Return Book"></p>
+</form>

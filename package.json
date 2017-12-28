@@ -1,0 +1,38 @@
+{
+  "name": "library-manager-v1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/Delano83/Treehouse_Project-10",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "jade": "^1.11.0",
+    "jquery": "^3.1.1",
+    "moment": "^2.20.1",
+    "pug": "^2.0.0-rc.4",
+    "sequelize": "^3.30.0",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify": "0.0.14",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "jshint": "^2.9.4",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.11.0"
+  }
+}

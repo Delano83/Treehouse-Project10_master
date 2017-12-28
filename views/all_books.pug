@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= pageTitle
+  
+  p
+    a.button(href='/new-book') Create New Book
+    
+  p Filters:  
+    a(href='/all-books') All
+    |     | 
+    a(href='/overdue-books') Overdue
+    |     | 
+    a(href='/checked-books') Checked Out
+  
+  table
+    thead
+      tr
+        th Book title
+        th Author
+        th Genre
+        th Year Released
+        
+    tbody
+      if data.length > 0
+        each book in data
+          tr
+            td
+              a(href='/book-detail/' + book.id)= book.title
+            td= book.author
+            td= book.genre
+            td= book.first_published
+      else
+        tr
+          td No books..

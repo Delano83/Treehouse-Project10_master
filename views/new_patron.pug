@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 New Patron
+
+  if submissionFail
+    ul
+      each error in submissionFail.errors
+        li= error.message
+
+  form(method='POST' action='/new-patron')
+    p
+      label(for='first_name') First name:
+      input(id='first_name' name='first_name' type='text' value='')
+    p
+      label(for='last_name') Last Name:
+      input(id='last_name' name='last_name' type='text' value='')
+    p
+      label(for='address') Address:
+      input(id='address' name='address' type='text' value='')
+    p
+      label(for='email') Email:
+      input(id='email' name='email' type='text' value='')
+    p
+      label(for='library_id') Library ID:
+      input(id='libary_id' name='library_id' type='text' value='')
+    p
+      label(for='zip_code') Zip Code:
+      input(id='zip_code' name='zip_code' type='text' value='')
+    p
+      input(type='submit', value='Create New Patron')
