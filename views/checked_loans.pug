@@ -25,6 +25,7 @@ block content
     tbody
       if data.length > 0
         each loan in data
+         p= loan
           tr
             td
               a(href='/books-details/' + loan.id) #{loan.Book.title}

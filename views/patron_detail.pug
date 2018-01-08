@@ -7,7 +7,7 @@ block content
       each error in submissionFail.errors
         li= error.message
 
-  form(action='/patron-detail/' + patron.id, method="post")
+  form(method='POST' action='/patron-detail/' + patron.id)
     P 
       label(for='first_name') First name:
       input(id='first_name' name='first_name' type='text' value=patron.first_name)
@@ -40,20 +40,24 @@ block content
       th Returned On
       th Action
 
-    tbody
-      if loans.length > 0
-        each loan in loans
-          tr
-            td
-              a(href='/book-detail/' + loan.id) #{loan.title}
-            td
-              a(href='/patron-detail/' + loan.id) #{loan.first_name} #{loan.last_name}
-            td= loan.loaned_on
-            td= loan.return_by
-            td= loan.returned_on
-            if(!loan.returned_on)
+      tbody
+        if loans
+          each loan in loans
+            tr
               td
-                a.button(href='/return-book/' + loan.id) Return Book
-      else
-        tr
-          td No Loans
+                a(href='/book-detail/' + loan.id) #{loan.Book.title}
+              td
+                a(href='/patron-detail/' + loan.id) #{patron.first_name} #{patron.last_name}
+              td= loan.loaned_on
+              td= loan.return_by
+              td= loan.returned_on
+              if(!loan.returned_on)
+                td
+                  a.button(href='/return-book/' + loan.id) Return Book
+        else
+          tr
+            td No Loans
+
+
+
+    

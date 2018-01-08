@@ -3,11 +3,6 @@ extends layout
 block content
   h1= pageTitle
 
-  if submissionFail
-    ul
-      each error in submissionFail.errors
-        li= error.message
-
   p 
     strong Book Title: &nbsp;
     | #{data.Book.title}
@@ -20,6 +15,9 @@ block content
   p
     strong Return By: &nbsp;
     | #{data.return_by}
+
+  if submissionFail
+   p= 'Please enter a valid return date. Thank you!'
 
   form(action='/return-book/' + data.id, method="post")
     p

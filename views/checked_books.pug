@@ -26,10 +26,10 @@ block content
         each book in data
           tr
             td
-              a(href='/books_detail/' + book.id)= book.title
-            td= book.author
-            td= book.genre
-            td= book.first_published
+              a(href='/book-detail/' + book.id) #{book.Book.title}
+            td= book.Book.author
+            td= book.Book.genre
+            td= book.Book.first_published
       else
         tr
-          td No checked out books..
+          td No checked out books

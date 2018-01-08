@@ -3,7 +3,11 @@ extends layout
 block content
   h1 Book: #{book.title}
 
-  include error
+  if submissionFail
+    ul
+      each error in submissionFail.errors
+        li= error.message
+
 
   form(action='/book-detail/' + book.id, method="post")
     P 
@@ -33,13 +37,13 @@ block content
       th Action
 
     tbody
-      if loans.length > 0
+      if loans 
         each loan in loans
           tr
             td
               a(href='/books-details/' + book.id) #{book.title}
             td
-              a(href='/patrons-details/' + loan.Patron.id) #{loan.first_name} #{loan.last_name}
+              a(href='/patrons-details/' + loan.Patron.id) #{loan.Patron.first_name} #{loan.last_name}
             td= loan.loaned_on
             td= loan.return_by
             td= loan.returned_on
